@@ -855,7 +855,7 @@ spec:
         - image: image-registry.openshift-image-registry.svc:5000/example-apps/simple-load-tester-web-server:latest
           name: app
           ports:
-          - containerPort: 8000
+          - containerPort: 8080
           resources: {}
 status: {}
 ---
@@ -871,7 +871,7 @@ spec:
   - name: 8080-80
     port: 8080
     protocol: TCP
-    targetPort: 8000
+    targetPort: 8080
   selector:
     app: simple-load-tester
     component: web-server
@@ -884,7 +884,7 @@ metadata:
 spec:
   host: web-server.$cluster_domain
   port:
-    targetPort: 8000
+    targetPort: 8080
   to:
     kind: Service
     name: simple-load-tester-web-server
@@ -1000,7 +1000,7 @@ Run `oc logs -n example-apps deployment simple-load-tester-web-server
 --container app` to confirm that the web server is receiving requests:
 
 ```text
-time="2026-05-29T21:34:43Z" level=info msg="Starting server on :8000"
+time="2026-05-29T21:34:43Z" level=info msg="Starting server on :8080"
 time="2026-05-29T21:34:46Z" level=info msg="Request handled" elapsed="1.541µs" method=GET path=/
 time="2026-05-29T21:34:46Z" level=info msg="Request handled" elapsed="1.197µs" method=GET path=/
 time="2026-05-29T21:34:46Z" level=info msg="Request handled" elapsed=890ns method=GET path=/

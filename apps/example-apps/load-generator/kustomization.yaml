@@ -1,3 +1,9 @@
+labels:
+- includeSelectors: true
+  pairs:
+    app: load-tester
+    component: web-server
+
 resources:
   - deployment.yaml
   - configmap.yaml

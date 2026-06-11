@@ -54,7 +54,7 @@ func (tc *ServerAddrTest) Run(t *testing.T) {
 
 func TestServerAddr(t *testing.T) {
 	tests := []ServerAddrTest{
-		{Name: "default_is_8000", EnvValue: "", Want: ":8000"},
+		{Name: "default_is_8080", EnvValue: "", Want: ":8080"},
 		{Name: "custom_port", EnvValue: "9090", Want: ":9090"},
 		{Name: "another_port", EnvValue: "3000", Want: ":3000"},
 	}

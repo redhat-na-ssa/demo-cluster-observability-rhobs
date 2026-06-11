@@ -1,4 +1,12 @@
+
+labels:
+- includeSelectors: true
+  pairs:
+    app: web-server
+    component: web-server
+
 resources:
-  - app.yaml
+  - build.yaml
+  - deploy.yaml
   - svc.yaml
   - route.yaml

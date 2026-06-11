@@ -48,7 +48,7 @@ func serverAddr() string {
 	if port := os.Getenv("PORT"); port != "" {
 		return ":" + port
 	}
-	return ":8000"
+	return ":8080"
 }
 
 func configureLogging() {

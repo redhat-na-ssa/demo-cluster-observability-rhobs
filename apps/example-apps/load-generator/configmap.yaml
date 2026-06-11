@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-config
+  name: load-generator
 data:
-  web_server_host: web-server.example-apps.svc.cluster.local
+  HOSTNAME: web-server

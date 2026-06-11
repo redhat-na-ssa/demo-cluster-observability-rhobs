@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "web-server:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[?(@.name==\"app\")].image"
+        }
+      ]
+spec:
+  replicas: 1
+  # selector:
+  #   matchLabels:
+  #     app: simple-load-tester
+  #     component: web-server
+  strategy: {}
+  template:
+    # metadata:
+    #   labels:
+    #     app: simple-load-tester
+    #     component: web-server
+    spec:
+      containers:
+        - image: web-server
+          name: app
+          ports:
+          - containerPort: 8080
+          resources: {}
