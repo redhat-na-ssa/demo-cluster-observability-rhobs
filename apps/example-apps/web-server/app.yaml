@@ -3,7 +3,6 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: web-server
-  namespace: replace-me
   labels:
     app: simple-load-tester
     component: web-server
@@ -15,7 +14,6 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: web-server
-  namespace: replace-me
   labels:
     app: simple-load-tester
     component: web-server
@@ -44,7 +42,6 @@ metadata:
     app: simple-load-tester
     component: web-server
   name: web-server
-  namespace: replace-me
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     image.openshift.io/triggers: |-

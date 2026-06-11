@@ -39,7 +39,7 @@ OpenTelemetry to send signals to Kafka and be compatible with this architecture.
    ```
 
 2. Use the YAML below to create a new `OpenTelemetryCollector` CR that sends
-   metrics, logs and traces to Kafka and the `debug` exporter. 
+   metrics, logs and traces to Kafka and the `debug` exporter.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -77,7 +77,6 @@ roleRef:
   kind: ClusterRole
   name: collector-k8sobj
   apiGroup: rbac.authorization.k8s.io
----
 ```
 
 ### Verification

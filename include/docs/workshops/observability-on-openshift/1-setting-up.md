@@ -3,7 +3,6 @@
 This guide walks through the resources deployed by the GitOps Kustomizations
 accompanying this demo. Useful for workshops on observability.
 
-
 <!-- vim-markdown-toc GFM -->
 
 * [Prerequisites](#prerequisites)
@@ -1188,7 +1187,6 @@ Go back to the Kafka console, refresh the page, then click on "Topics."
 
 You should see three topics in the console. Click on any of them. You should see
 messages appear in the topic momentarily. Keep refreshing to see them pile up!
-
 
 ![](./include/assets/img/kafka_console_topics_example.png)
 
