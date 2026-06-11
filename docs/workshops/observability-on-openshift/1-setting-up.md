@@ -805,7 +805,7 @@ spec:
     git:
       uri: https://github.com/carlosonunez-redhat/demoland
       ref: main
-    contextDir: apps/example-apps/simple-load-tester/web-server/src
+    contextDir: apps/simple-load-tester/web-server/src
   strategy:
     sourceStrategy:
       from:

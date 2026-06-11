@@ -16,7 +16,7 @@ spec:
     git:
       uri: https://github.com/redhat-na-ssa/demo-cluster-observability-rhobs
       ref: refactor
-    contextDir: apps/example-apps/web-server/src
+    contextDir: apps/web-server/src
   strategy:
     sourceStrategy:
       from:

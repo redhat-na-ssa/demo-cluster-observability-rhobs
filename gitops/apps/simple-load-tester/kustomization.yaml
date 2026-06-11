@@ -2,7 +2,7 @@ namespace: example-apps
 resources:
   - ../../../components/rbac/service-accounts/privileged
   - ../../../components/k8s-namespace
-  - ../../../apps/example-apps/simple-load-tester
+  - ../../../apps/simple-load-tester
 patches:
   - target:
       kind: Namespace
