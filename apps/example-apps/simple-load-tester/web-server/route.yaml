@@ -3,10 +3,8 @@ kind: Route
 metadata:
   name: simple-load-tester-web-server
 spec:
-  host: simple-load-tester-web-server.replace-me
   port:
     targetPort: 8000
   to:
     kind: Service
     name: simple-load-tester-web-server
-

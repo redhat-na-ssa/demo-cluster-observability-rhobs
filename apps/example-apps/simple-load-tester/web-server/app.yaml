@@ -22,8 +22,8 @@ metadata:
 spec:
   source:
     git:
-      uri: https://github.com/carlosonunez-redhat/demoland
-      ref: demo/rhobs
+      uri: https://github.com/redhat-na-ssa/demo-cluster-observability-rhobs
+      ref: main
     contextDir: apps/example-apps/simple-load-tester/web-server/src
   strategy:
     sourceStrategy:
@@ -52,7 +52,7 @@ metadata:
         {
           "from": {
             "kind": "ImageStreamTag",
-            "name": "simple-load-tester-web-server"
+            "name": "simple-load-tester-web-server:latest"
           },
           "fieldPath": "spec.template.spec.containers[?(@.name==\"app\")].image"
         }
@@ -77,4 +77,3 @@ spec:
           - containerPort: 8000
           resources: {}
 status: {}
-
