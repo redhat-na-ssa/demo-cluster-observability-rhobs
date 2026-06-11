@@ -7,7 +7,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/href
-        value: https://kafka-console.apps.rhobsdemo.sandbox5159.opentlc.com
+        value: https://kafka-console.apps.cluster-xsht5.xsht5.sandbox5417.opentlc.com
   - target:
       kind: Console
       name: rhobs-console
@@ -18,7 +18,7 @@ patches:
         value: rhobs-messaging
       - op: replace
         path: /spec/hostname
-        value: kafka-console.apps.rhobsdemo.sandbox5159.opentlc.com
+        value: kafka-console.apps.cluster-xsht5.xsht5.sandbox5417.opentlc.com
       - op: replace
         path: /spec/kafkaClusters/0/name
         value: kafka-cluster
