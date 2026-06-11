@@ -28,5 +28,5 @@ spec:
       name: web-server:latest
   triggers:
     - type: ConfigChange
-status:
-  lastVersion: 1336
+# status:
+#   lastVersion: 1336
