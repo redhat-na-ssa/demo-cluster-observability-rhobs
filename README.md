@@ -7,34 +7,34 @@ your external tooling.
 
 * [Three Key Points](#three-key-points)
 * [Architecture](#architecture)
-    * [Metrics](#metrics)
-    * [Logs](#logs)
-    * [Traces](#traces)
+  * [Metrics](#metrics)
+  * [Logs](#logs)
+  * [Traces](#traces)
 * [Setting Up](#setting-up)
-    * [What You'll Need](#what-youll-need)
-    * [Instructions](#instructions)
-        * [Create AWS Resources](#create-aws-resources)
-        * [Install the OpenShift GitOps operator](#install-the-openshift-gitops-operator)
-        * [Create secrets](#create-secrets)
-        * [Create GitOps Applications](#create-gitops-applications)
-            * [Demo Operators](#demo-operators)
-            * [Demo Resources](#demo-resources)
-            * [Sample Applications](#sample-applications)
+  * [What You'll Need](#what-youll-need)
+  * [Instructions](#instructions)
+    * [Create AWS Resources](#create-aws-resources)
+    * [Install the OpenShift GitOps operator](#install-the-openshift-gitops-operator)
+    * [Create secrets](#create-secrets)
+    * [Create GitOps Applications](#create-gitops-applications)
+      * [Demo Operators](#demo-operators)
+      * [Demo Resources](#demo-resources)
+      * [Sample Applications](#sample-applications)
 * [Demo](#demo)
-    * [Step Zero Monitoring with OpenShift Monitoring](#step-zero-monitoring-with-openshift-monitoring)
-    * [Zooming in with Signal Correlation and the Cluster Logging Operator](#zooming-in-with-signal-correlation-and-the-cluster-logging-operator)
-    * [Analyzing application behavior with OpenShift Tracing and OpenTelemetry](#analyzing-application-behavior-with-openshift-tracing-and-opentelemetry)
-    * [Export into existing observability platforms](#export-into-existing-observability-platforms)
-    * [Next Steps](#next-steps)
+  * [Step Zero Monitoring with OpenShift Monitoring](#step-zero-monitoring-with-openshift-monitoring)
+  * [Zooming in with Signal Correlation and the Cluster Logging Operator](#zooming-in-with-signal-correlation-and-the-cluster-logging-operator)
+  * [Analyzing application behavior with OpenShift Tracing and OpenTelemetry](#analyzing-application-behavior-with-openshift-tracing-and-opentelemetry)
+  * [Export into existing observability platforms](#export-into-existing-observability-platforms)
+  * [Next Steps](#next-steps)
 
 <!-- vim-markdown-toc -->
 ## Three Key Points
 
-- Observe cluster and workload behavior with minimal configuration with the
+* Observe cluster and workload behavior with minimal configuration with the
   **Red Hat Cluster Observability Operator (COO)**
-- Aggregate and forward logs to your corporate log aggregators or SIEMs with the
+* Aggregate and forward logs to your corporate log aggregators or SIEMs with the
   **Red Hat Cluster Logging Operator (CLO)**
-- Send workload and cluster signals to your existing observability stack with
+* Send workload and cluster signals to your existing observability stack with
   the **Red Hat Build of OpenTelemetry**
 
 ## Architecture
@@ -87,7 +87,7 @@ Traces are collected by OpenTelemetry and forwarded to a Tempo instance managed
 by the **Cluster Observability Operator (COO)** and to Kafka as well as Perses.
 
 Like metrics, Tempo and the OpenShift Console UI Plugin provided by COO provide
-cluster operators with a quick glance at application behavior in the **Observe** > 
+cluster operators with a quick glance at application behavior in the **Observe** >
 **Traces** pane.
 
 This demo also provides an AI-generated Golang web server to show how tracing works
@@ -98,17 +98,17 @@ random HTTP methods against the web server every second.
 
 ### What You'll Need
 
-- An AWS Account with an Access and Secret Key Pair
-- The AWS CLI
-- An OpenShift Cluster (tested with v4.20)
-- Access to a shell, like `bash`, `zsh` or `fish`
+* An AWS Account with an Access and Secret Key Pair
+* The AWS CLI
+* An OpenShift Cluster (tested with v4.20)
+* Access to a shell, like `bash`, `zsh` or `fish`
 
 > 📝 **NOTE**
 >
 > You have several options if you don't have an OpenShift cluster handy:
 >
-> - [OpenShift Local](https://developers.redhat.com/products/openshift-local) or
-> - Stand up a Single-Node OpenShift cluster in about 45 minutes
+> * [OpenShift Local](https://developers.redhat.com/products/openshift-local) or
+> * Stand up a Single-Node OpenShift cluster in about 45 minutes
 >   with [Carlos's Demoland](https://github.com/redhat-na-ssa/demo-cluster-observability-rhobs).
 
 ### Instructions
@@ -131,9 +131,9 @@ aws cloudformation create-stack \
 
 This will:
 
-- Create a bucket that Loki and Tempo will store logs and traces into,
+* Create a bucket that Loki and Tempo will store logs and traces into,
   respectively, and
-- Create an IAM user that is only allowed to read from and write into this
+* Create an IAM user that is only allowed to read from and write into this
   bucket.
 
 Run `aws cloudformation describe-stacks --stack-name rhobs-s3-demo` and wait for
@@ -307,7 +307,6 @@ EOF
 
 The environment will be ready in about 15 minutes.
 
-
 ## Demo
 
 You are a platform operator that is responsible for administrating the
@@ -318,7 +317,6 @@ console of some kind.
 
 Let's see what the observability flow with OpenShift looks like for a single
 cluster in this demo.
-
 
 <!-- vim-markdown-toc GFM -->
 
@@ -463,7 +461,6 @@ simplifies creating Kafka clusters and topics within them. Let's visit the
 Kafka Console from the tiles in the OpenShift Console to have a look at these
 Kafka topics to see what that data looks like.
 
-
 ![](./include/assets/img/12-streams-console.png)
 
 ![](./include/assets/img/13-kafka-console-topic.png)
@@ -481,13 +478,17 @@ clusters during troubleshooting events.
 
 ### Next Steps
 
-- **Multicluster Observability with ACM**: We saw how to use OpenShift cluster
+* **Multicluster Observability with ACM**: We saw how to use OpenShift cluster
   observability operators to surface and analyze traditional observability
   signals within the OpenShift Console as well as from external systems like
   Kafka. **Advanced Cluster Management for OpenShift (ACM)** is another great
   way to obtain multicluster observability as well as manage all of your
   OpenShift or Kubernetes clusters.
 
-- **Observability at the speed of thought with OpenShift Lightspeed**: OpenShift
+* **Observability at the speed of thought with OpenShift Lightspeed**: OpenShift
   Lightspeed is a great way to "chat with your cluster" to do almost anything,
   including understanding underlying behavior and probe into its workloads.
+
+### Links
+
+* [OpenTelemtry Compenents Docs](https://opentelemetry.io/docs/collector/components)
