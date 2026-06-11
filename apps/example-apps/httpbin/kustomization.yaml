@@ -1,0 +1,2 @@
+resources:
+  - https://github.com/redhat-na-ssa/demo-ai-gitops-catalog/components/app-configs/httpbin/base
