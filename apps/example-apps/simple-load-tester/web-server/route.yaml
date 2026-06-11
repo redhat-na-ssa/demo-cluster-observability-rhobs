@@ -1,10 +1,10 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: simple-load-tester-web-server
+  name: web-server
 spec:
   port:
     targetPort: 8000
   to:
     kind: Service
-    name: simple-load-tester-web-server
+    name: web-server

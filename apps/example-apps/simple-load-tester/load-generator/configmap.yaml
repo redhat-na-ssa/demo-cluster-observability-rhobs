@@ -4,4 +4,4 @@ metadata:
   name: app-config
   namespace: patch-me
 data:
-  web_server_host: replace-me
+  web_server_host: web-server.example-apps.svc.cluster.local

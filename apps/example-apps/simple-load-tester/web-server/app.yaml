@@ -2,7 +2,7 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: simple-load-tester-web-server
+  name: web-server
   namespace: replace-me
   labels:
     app: simple-load-tester
@@ -14,7 +14,7 @@ spec:
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: simple-load-tester-web-server
+  name: web-server
   namespace: replace-me
   labels:
     app: simple-load-tester
@@ -33,7 +33,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: simple-load-tester-web-server:latest
+      name: web-server:latest
   triggers:
     - type: ConfigChange
 ---
@@ -43,7 +43,7 @@ metadata:
   labels:
     app: simple-load-tester
     component: web-server
-  name: simple-load-tester-web-server
+  name: web-server
   namespace: replace-me
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
@@ -52,7 +52,7 @@ metadata:
         {
           "from": {
             "kind": "ImageStreamTag",
-            "name": "simple-load-tester-web-server:latest"
+            "name": "web-server:latest"
           },
           "fieldPath": "spec.template.spec.containers[?(@.name==\"app\")].image"
         }
@@ -71,9 +71,8 @@ spec:
         component: web-server
     spec:
       containers:
-        - image: simple-load-tester-web-server
+        - image: web-server
           name: app
           ports:
           - containerPort: 8000
           resources: {}
-status: {}
